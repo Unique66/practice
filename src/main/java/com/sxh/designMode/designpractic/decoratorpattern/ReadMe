@@ -1,0 +1,3 @@
+beverage 包下面都是 饮料类，需要被装饰的父类
+condiment 包下面都是 调料类，用来装饰的类
+condiment 中的父类Condiment.java要继承 Beverage.java 来保证每一个装饰类被创建时可以把Beverage 嵌套到构造函数中，使用递归的方式修饰

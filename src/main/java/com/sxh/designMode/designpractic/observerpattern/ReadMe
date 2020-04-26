@@ -1,0 +1,8 @@
+观察者模式：定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新
+Test.java :是测试观察者模式的
+Observer.java： interface 观察者模式中的那个多  依赖的
+Subject.java：interface 观察者模式中的那个一   被依赖的
+
+TodayObserver.java  TomorrowObserver.java   ： class   Observer的实现类
+
+WeatherStation.java  ： class  Subject 的实现类

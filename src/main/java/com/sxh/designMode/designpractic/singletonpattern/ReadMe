@@ -1,0 +1,4 @@
+	private static FullSingleton fullSingleton;
+	public static FullSingleton getInstance() {
+类似上面使用static 修饰是因为单例模式其构造方法是私有的，不会让外围访问来创建对象，所以需要将其方法和变量变为static
+用类的方式直接访问，而不用去new。
