@@ -11,9 +11,13 @@ public class Josepfu {
 	public static void main(String[] args) {
 		// 测试构建环形链表和遍历方法是否可以
 		CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
-		circleSingleLinkedList.addBoy(20);
+		circleSingleLinkedList.addBoy(5);
 		circleSingleLinkedList.showBoy();
+
+		// 测试小孩出圈是否正确
+		circleSingleLinkedList.countBoy(1,2, 5); // 2->4->1->5->3
 	}
+
 }
 
 // 创建一个环形的单向链表
@@ -58,6 +62,54 @@ class CircleSingleLinkedList {
 			}
 			curBoy = curBoy.getNext(); // curBoy 后移
 		}
+	}
+
+	/**
+	 * @Author SXH
+	 * @Description // 约瑟夫问题处理
+	 * @Date 2020/4/27  23:26
+	 * @param startNo  起始位置
+	 * @param countNum 喊countNum 下出圈
+	 * @param nums  循环队列节点个数
+	 **/
+	public void countBoy(int startNo, int countNum, int nums) {
+		// 首先校验数据
+		if (first == null || startNo < 1 || startNo > nums) {
+			System.out.println("参数输入有误，请重新输入");
+			return;
+		}
+		// 创建辅助节点，帮助完成小孩出圈
+		Boy helper = first;
+		// helper 这个辅助节点需要事先指向环形链表的最后一个节点
+		while (true) {
+			if (helper.getNext() == first) {
+				break;
+			}
+			helper = helper.getNext();
+		}
+		// 小孩报数前，先让 first 和helper 节点移动 startNo -1 次
+		for (int j = 0; j < startNo -1; j++) {
+			first = first.getNext();
+			helper = helper.getNext();
+		}
+		// 当小孩报数时，让first 和helper 节点同时移动 countNum - 1 次，然后出圈
+		// 循环操作，直到循环链表只有一个节点
+		while (true) {
+			if (helper == first) { // 说明圈中只有一个节点
+				break;
+			}
+			// 让first 和helper 节点同时移动 countNum - 1 次
+			for (int j = 0; j < countNum - 1; j++) {
+				first = first.getNext();
+				helper = helper.getNext();
+			}
+			// 此时first 指向的节点就是要出圈的节点
+			System.out.printf("小孩%d出圈\n", first.getNo());
+			// 将first指向的小孩移出圈外
+			first = first.getNext();
+			helper.setNext(first);
+		}
+		System.out.printf("最后留在圈中的小孩编号为：%d \n", first.getNo());
 	}
 }
 
