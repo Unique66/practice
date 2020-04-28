@@ -71,6 +71,21 @@ class CircleSingleLinkedList {
 	 * @param startNo  起始位置
 	 * @param countNum 喊countNum 下出圈
 	 * @param nums  循环队列节点个数
+	 *	思路：
+	 *  根据用户的输入，生成一个小孩出圈的顺序
+	 *   n = 5 , 即有5个人
+	 *   k = 1, 从第一个人开始报数
+	 *   m = 2, 数2下
+	 *  1.  需求创建一个辅助指针(变量) helper , 事先应该指向环形链表的最后这个节点.
+	 *  注：补充： 小孩报数前，先让 first 和  helper 移动 k - 1次
+	 *  2.  当小孩报数时，让first 和 helper 指针同时 的移动  m  - 1 次
+	 *  3.  这时就可以将first 指向的小孩节点 出圈
+	 *  first = first .next
+	 *  helper.next = first
+	 *  原来first 指向的节点就没有任何引用，就会被回收
+	 *
+	 * 	出圈的顺序
+	 * 	2->4->1->5->3
 	 **/
 	public void countBoy(int startNo, int countNum, int nums) {
 		// 首先校验数据
@@ -106,6 +121,7 @@ class CircleSingleLinkedList {
 			// 此时first 指向的节点就是要出圈的节点
 			System.out.printf("小孩%d出圈\n", first.getNo());
 			// 将first指向的小孩移出圈外
+
 			first = first.getNext();
 			helper.setNext(first);
 		}
