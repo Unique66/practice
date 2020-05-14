@@ -17,8 +17,9 @@ public class SelectSort {
 //		System.out.println(Arrays.toString(arr1));
 
 		// 创建80000个随机数的数组
-		int [] arr = new int[80000];
-		for (int i = 0; i < 80000; i++) {
+		int MAX_SIZE = 80000;
+		int [] arr = new int[MAX_SIZE];
+		for (int i = 0; i < MAX_SIZE; i++) {
 			arr[i] = (int)(Math.random() * 8000000);
 		}
 		long start = System.currentTimeMillis();
@@ -26,7 +27,7 @@ public class SelectSort {
 		sort(arr);
 		long end = System.currentTimeMillis();
 		System.out.println(end);
-		System.out.println((end - start));
+		System.out.println((end - start)); // 八万数据大概耗时 2s
 	}
 
 	// 首先假定第一个数是最小数，向后遍历，一直找比第一个数小的数，遍历完就找到了，记录下标，如果下标不是0，就替换

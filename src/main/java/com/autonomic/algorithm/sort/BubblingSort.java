@@ -22,8 +22,9 @@ public class BubblingSort {
 		print(array);
 
 		// 创建80000个随机数的数组
-		int [] arr = new int[80000];
-		for (int i = 0; i < 80000; i++) {
+		int MAX_SIZE = 80000;
+		int [] arr = new int[MAX_SIZE];
+		for (int i = 0; i < MAX_SIZE; i++) {
 			arr[i] = (int)(Math.random() * 8000000);
 		}
 		long start = System.currentTimeMillis();
@@ -31,7 +32,7 @@ public class BubblingSort {
 		sort(arr);
 		long end = System.currentTimeMillis();
 		System.out.println(end);
-		System.out.println((end - start));
+		System.out.println((end - start)); // 八万数据大概耗时 10s
 	}
 
 	// 从小到大排序 array数组
