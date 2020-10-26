@@ -1,4 +1,4 @@
-/.idea/
+/.idea/codeStyles/
 /.idea/libraries/
 /target/
 ### Example user template template
@@ -11,7 +11,7 @@ out
 gen
 /target/
 /.classpath
-/.idea
+/.idea/
 /.gitignore
 src/main/resources/
 src/test/
