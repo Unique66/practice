@@ -89,6 +89,16 @@ public class SingleLinkedListDemo {
 		1.先定义一个节点 reverseHead = new HeroNode();
 		2.从头到尾遍历原来的链表，每遍历一个节点，就将其取出，并放在新的链表 reverseHead 的最前端。
 		3.原来的链表的 head.next = reverseHead.next 即可
+
+		while 循环中的演算
+		1 2 3 4 5
+
+		cur   ->  reverse.next = null
+		reverse -> cur
+		reverse -> 1 -> null
+
+		2 -> 1
+		reverse -> 2
 	 **/
 	public static void reverseLinkedList(HeroNode head) {
 		// 首先要判断链表是否为空或只有一个有效节点
