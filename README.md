@@ -1,5 +1,5 @@
 # practice
-自己的线下练习
+练习
 
 java.com.autonomic (自律包) 起这个名字来约束自己要自律：
     
