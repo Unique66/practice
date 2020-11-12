@@ -71,7 +71,7 @@ public class RadixSort {
 					bucketElementCounts[i] = 0;
 				}
 			}
-//			System.out.println("第" + (k+1) + "次遍历" + Arrays.toString(arr));
+			System.out.println("第" + (k+1) + "次遍历" + Arrays.toString(arr));
 		}
 	}
 
