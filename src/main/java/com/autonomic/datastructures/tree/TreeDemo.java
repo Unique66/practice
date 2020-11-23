@@ -35,6 +35,13 @@ public class TreeDemo {
         TreeNode treeNode = tree.subFind(no);
         System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
         System.out.println(treeNode);
+
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        tree.preList();
+        tree.delNode(5);
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        tree.preList();
+
     }
 }
 
@@ -93,6 +100,23 @@ class Tree {
         } else {
             System.out.printf("没有编号%d的节点", no);
             return null;
+        }
+    }
+
+    /***
+     * @return
+     */
+    public void delNode(int no) {
+        // 1.首先判断根节点是否为空，为空则报树为空无法删除，不为空，判断根节点no 与待删除no 是否一致，一致删除整个树，不一致向下走
+        if (this.root != null) {
+            if (this.root.getId() == no) {
+                this.root = null;
+                return;
+            } else {
+                this.root.delNode(no);
+            }
+        } else {
+            System.out.println("空树，无法delNode");
         }
     }
 }
@@ -259,4 +283,51 @@ class TreeNode {
         }
         return null;
     }
+
+
+    /**
+     * 递归删除节点
+     * 规定：
+     * 1）如果删除的节点是叶子节点，则删除该节点
+     * 2）如果删除的节点是非叶子节点，则删除该子树
+     *
+     * 思路：
+     * 1.首先判断根节点是否为空，为空则报树为空无法删除，不为空，判断根节点no 与待删除no 是否一致，一致删除整个树，不一致向下走
+     * 2.判断左节点是否不为空并且左节点no == 待删除no ，删除并return
+     * 3.同理判断右节点是否不为空并且节点no == 待删除节点，相等则删除并return
+     * 4.走到这步说明左右都没有找到待删除的节点，那么就拿节点向左递归
+     * 5.左递归没有找到，那么就右递归
+     * @param no 待删除节点ID
+     */
+
+    public void delNode(int no) {
+        // 2.判断左节点是否不为空并且左节点no == 待删除no ，删除并return
+        if (this.left != null && this.left.getId() == no) {
+            this.left = null;
+            return;
+        }
+        // 3.同理判断右节点是否不为空并且节点no == 待删除节点，相等则删除并return
+        if (this.right != null && this.right.getId() == no) {
+            this.right = null;
+            return;
+        }
+        // 4.走到这步说明左右都没有找到待删除的节点，那么就拿节点向左递归
+        if (this.left != null) {
+            this.left.delNode(no);
+        }
+
+        // 5.左递归没有找到，那么就右递归
+        if (this.right != null) {
+            this.right.delNode(no);
+        }
+    }
+
+    /**
+     * 递归删除节点
+     * 规定：
+     * 1）如果删除的节点是叶子节点，则删除该节点
+     * 2）如果删除的节点是非叶子节点，如果只有左子节点，就用左子节点代替待删除节点
+     * 3）如果左右节点都有，那么也是用左子节点代替待删除节点
+     * TODO
+     */
 }
