@@ -66,7 +66,7 @@ class ThreadBinaryTree {
         // 定义一个变量，存储当前遍历的节点，从root 开始
         ThreadTreeNode node = root;
         while (node != null) {
-            // 循环的找到leftType == 1 的节点，第一个找到的时8
+            // 循环的找到leftType == 1 的节点，第一个找到的是8
             // 后面随遍历而变化，因为当leftType == 1时，说明该节点是按照线索化处理后的有效节点
             while (node.getLeftType() == 0) {
                 node = node.getLeft();
