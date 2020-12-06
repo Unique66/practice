@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author SXH
- * @description 赫夫曼
+ * @description 赫夫曼树
  * @date 2020/12/3 23:04
  */
 public class HuffmanTreeDemo {
