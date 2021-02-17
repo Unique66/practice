@@ -11,7 +11,7 @@ import java.util.Arrays;
  * （分治法将问题分（divide）成一些小的问题然后递归求解，而治（conquer）的阶段则将分的阶段得到的答案“修补”在一起，即分而治之）。
  * @date 2020/5/25 22:36.
  */
-public class MergSort {
+public class MergeSort {
 	public static void main(String[] args) {
 //		int [] arr = {8, 4, 5, 7, 1, 3, 6, 2};
 //		int [] temp = new int[arr.length]; // 归并排序需要一个额外的空间（空间换时间）
