@@ -26,7 +26,7 @@ public class Test1BubblingSort {
         long start = System.currentTimeMillis();
         sort1(arr);
         long end = System.currentTimeMillis();
-        System.out.println((end - start)); // 八万数据大概耗时 10s
+        System.out.println((end - start) + "ms"); // 八万数据大概耗时 10000ms
     }
 
     // 2021年2月11日10:40:01

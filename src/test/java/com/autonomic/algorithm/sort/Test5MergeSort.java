@@ -20,7 +20,7 @@ public class Test5MergeSort {
         SortUtils.printArray(array);
         // temp 数组是空间换时间的做法
         // 创建80000个随机数的数组
-        int MAX_SIZE = 80;
+        int MAX_SIZE = 800000;
         int[] arr = new int[MAX_SIZE];
         for (int i = 0; i < MAX_SIZE; i++) {
             arr[i] = (int) (Math.random() * 8000000);
@@ -28,9 +28,9 @@ public class Test5MergeSort {
         int[] temp1 = new int[MAX_SIZE];
         long start = System.currentTimeMillis();
         sort1(arr, 0, MAX_SIZE - 1, temp1);
-        SortUtils.printArray(arr);
+//        SortUtils.printArray(arr);
         long end = System.currentTimeMillis();
-        System.out.println((end - start)); // 八万数据大概耗时 0.01s   10ms
+        System.out.println((end - start) + "ms"); // 八万数据大概耗时 10ms   80万数据耗时100ms
     }
 
     // 2021年2月11日10:59:47

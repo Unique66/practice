@@ -20,9 +20,9 @@ public class HeapSort {
 
         // 创建800万个随机数的数组
         int MAX_SIZE = 8000000;
-        int [] arrMax = new int[MAX_SIZE];
+        int[] arrMax = new int[MAX_SIZE];
         for (int i = 0; i < MAX_SIZE; i++) {
-            arrMax[i] = (int)(Math.random() * 8000000);
+            arrMax[i] = (int) (Math.random() * 8000000);
         }
         long start = System.currentTimeMillis();
         heapSort(arrMax);
@@ -61,13 +61,12 @@ public class HeapSort {
     }
 
     /**
-     *
      * @param: arr 待排序数组
      * @param: i 指最后一个非叶子节点所在数组下标
      * @param: length 当前剩余未排序数组长度（
-     *  大顶堆 堆排序，会将最大值移动到数组最右边，再将剩余的数组元素匹配成大顶堆，然后再摘出一个最大值）
-     *  所以length 会减少
-     *  以{4, 6, 8, 5, 9} 为例，第一次调整 i 对应的就是元素6 所在的下标， i = 1   length = 5
+     * 大顶堆 堆排序，会将最大值移动到数组最右边，再将剩余的数组元素匹配成大顶堆，然后再摘出一个最大值）
+     * 所以length 会减少
+     * 以{4, 6, 8, 5, 9} 为例，第一次调整 i 对应的就是元素6 所在的下标， i = 1   length = 5
      */
     public static void exchangeNode(int[] arr, int i, int length) {
         // 首先将最后一个非叶子节点的值与其左右叶子节点对比
@@ -76,7 +75,7 @@ public class HeapSort {
         for (int k = 2 * i + 1; k < length; k = k * 2 + 1) {
             // 判断左子节点和右子节点大小 找到最大的那个节点
             // 由于for 循环条件中只有 k < length 的限制， k + 1 可能越界，所以加 k+1 < length 的条件
-            if (k+1 < length && arr[k] < arr[k + 1]) {
+            if (k + 1 < length && arr[k] < arr[k + 1]) {
                 k++; // 保留值大的节点对应数组的下标
             }
             // 这里就找到了节点中值较大的元素，将该元素与最后一个非叶子节点的值进行比较，子节点的值大，就替换

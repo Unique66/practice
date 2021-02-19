@@ -26,7 +26,7 @@ public class Test3InsertionSort {
         long start = System.currentTimeMillis();
         sort1(arr);
         long end = System.currentTimeMillis();
-        System.out.println((end - start)); // 八万数据大概耗时 0.57s
+        System.out.println((end - start) + "ms"); // 八万数据大概耗时 680ms
     }
 
     // 2021年2月11日10:59:47

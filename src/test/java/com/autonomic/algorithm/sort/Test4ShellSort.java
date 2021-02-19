@@ -27,7 +27,7 @@ public class Test4ShellSort {
         sort1(arr);
 //        SortUtils.printArray(arr);
         long end = System.currentTimeMillis();
-        System.out.println((end - start)); // 八万数据大概耗时 0.9s
+        System.out.println((end - start) + "ms"); // 八万数据大概耗时 1000s
     }
 
     // 2021年2月11日12:15:02
