@@ -1,0 +1,3 @@
+Redis 淘汰策略相关LRU（Least Recently Use） 最近最少使用
+1.依赖JDK，继承LinkedHashMap 实现
+2.不依赖JDK，纯手写，使用哈希+链表实现
