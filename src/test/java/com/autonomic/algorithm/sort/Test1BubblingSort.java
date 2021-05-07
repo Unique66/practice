@@ -15,7 +15,7 @@ import com.autonomic.util.SortUtils;
 public class Test1BubblingSort {
     public static void main(String[] args) {
         int[] array = {3, 9, -1, 10, 20};
-        sort1(array);
+        sort2(array);
         SortUtils.printArray(array);
         // 创建80000个随机数的数组
         int MAX_SIZE = 80000;
@@ -27,6 +27,17 @@ public class Test1BubblingSort {
         sort1(arr);
         long end = System.currentTimeMillis();
         System.out.println((end - start) + "ms"); // 八万数据大概耗时 10000ms
+    }
+
+    // 2021年5月7日21:06:28
+    public static void sort2(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) { // 遍历的次数
+            for (int j = 0; j < arr.length - 1 - i; j++) { // 从头到尾遍历，每遍历一遍，就有一个元素找到自己的位置，之后不用遍历该位置元素
+                if (arr[j] > arr[j + 1]) {
+                    SortUtils.exchangeElement(arr, j, j + 1);
+                }
+            }
+        }
     }
 
     // 2021年2月11日10:40:01
