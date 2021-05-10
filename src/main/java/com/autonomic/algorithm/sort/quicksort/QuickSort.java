@@ -1,4 +1,9 @@
-package com.autonomic.algorithm.sort;/**
+/*
+ * Copyright (c) 2021.  User:SXH  File:QuickSort.java
+ * Date:2021/05/07 23:29:07
+ */
+
+package com.autonomic.algorithm.sort.quicksort;/**
  * Created by SXH on 2020/5/21 22:23.
  */
 
