@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2020.  User:SXH  File:HeapSort.java
- * Date:2020/12/02 22:38:02
+ * Copyright (c) 2021.  User:SXH  File:HeapSort.java
+ * Date:2021/02/19 23:23:19
  */
 
-package com.autonomic.algorithm.sort;
+package com.autonomic.algorithm.sort.heapsort;
 
 import java.util.Arrays;
 
