@@ -15,7 +15,7 @@ import com.autonomic.util.SortUtils;
 public class Test1BubblingSort {
     public static void main(String[] args) {
         int[] array = {3, 9, -1, 10, 20};
-        sort2(array);
+        sort3(array);
         SortUtils.printArray(array);
         // 创建80000个随机数的数组
         int MAX_SIZE = 80000;
@@ -24,9 +24,26 @@ public class Test1BubblingSort {
             arr[i] = (int) (Math.random() * 8000000);
         }
         long start = System.currentTimeMillis();
-        sort1(arr);
+        sort3(arr);
         long end = System.currentTimeMillis();
         System.out.println((end - start) + "ms"); // 八万数据大概耗时 10000ms
+    }
+
+    // 2021年5月22日11:37:57
+    public static void sort3(int[] arr) {
+        // 从小到大排序，像气泡一样将较大的数一个个往后排
+        // 所有有n 个元素的数组，就需要找n-1 次较大的数
+        for (int i = 0; i < arr.length - 1; i++) {
+            // 每次从首个元素开始，直到未排序的末尾元素
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    SortUtils.exchangeElement(arr, j, j + 1);
+                }
+            }
+        }
+        /*
+         * 由于两次for 循环，所以时间复杂度是(n²)每次都会用临时temp 存值，所以空间复杂度是O(1)
+         */
     }
 
     // 2021年5月7日21:06:28

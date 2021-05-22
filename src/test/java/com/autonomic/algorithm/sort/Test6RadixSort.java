@@ -15,19 +15,54 @@ import com.autonomic.util.SortUtils;
 public class Test6RadixSort {
     public static void main(String[] args) {
         int[] array = {3, 9, 4, 10, 20};
-        sort1(array);
+        sort2(array);
         SortUtils.printArray(array);
         // 创建80000个随机数的数组
-        int MAX_SIZE = 800000;
-        int[] arr = new int[MAX_SIZE];
-        for (int i = 0; i < MAX_SIZE; i++) {
-            arr[i] = (int) (Math.random() * 8000000);
+//        int MAX_SIZE = 800000;
+//        int[] arr = new int[MAX_SIZE];
+//        for (int i = 0; i < MAX_SIZE; i++) {
+//            arr[i] = (int) (Math.random() * 8000000);
+//        }
+//        long start = System.currentTimeMillis();
+//        sort1(arr);
+////        SortUtils.printArray(arr);
+//        long end = System.currentTimeMillis();
+//        System.out.println((end - start) + "ms"); // 八万数据大概耗时 20ms  80万数据耗时60ms
+    }
+
+    // 2021年5月22日12:38:26
+    public static void sort2(int[] arr) {
+        // 基数排序就是找到待排序元素中最大值，算出位数，然后从个位开始拿一遍，放到准备的0-9 桶中
+        // 然后再取回来放入到原数组，接着算十位，依次类推，最终排序完毕
+
+        // 准备十个桶
+        int[][] bucket = new int[10][arr.length];
+        int[] helper = new int[10]; // 记录每个桶中存放的元素个数，默认0
+
+        // 先找到最大值
+        int max = arr[0];
+        for (int i = 1; i < arr.length - 1; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
         }
-        long start = System.currentTimeMillis();
-        sort1(arr);
-//        SortUtils.printArray(arr);
-        long end = System.currentTimeMillis();
-        System.out.println((end - start) + "ms"); // 八万数据大概耗时 20ms  80万数据耗时60ms
+        int maxLen = (max + "").length(); // 最大位数
+        // 从个位开始比较
+        for (int i = 0, x = 1; i < maxLen; i++, x *= 10) { // 循环maxLen 次
+            // 计算元素个位数
+            for (int j = 0; j < arr.length - 1; j++) {
+                int digit = arr[j] / x % 10;
+                bucket[digit][helper[digit]++] = arr[j];
+            }
+            // 循环一次后将元素从10 个桶中放回到原数组
+            int index = 0;
+            for (int j = 0; j < 10; j++) {
+                for (int k = 0; k < helper[j]; k++) {
+                    arr[index++] = bucket[j][k];
+                }
+                helper[j] = 0; // 重置为0，保证下次十位或其他位使用
+            }
+        }
     }
 
     // 2021年2月19日21:51:40
