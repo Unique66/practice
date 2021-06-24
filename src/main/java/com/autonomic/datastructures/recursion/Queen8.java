@@ -2,8 +2,6 @@ package com.autonomic.datastructures.recursion;/**
  * Created by SXH on 2020/5/10 21:55.
  */
 
-import javax.validation.constraints.Max;
-
 /**
  * @author SXH
  * @description 八皇后问题递归思想处理
