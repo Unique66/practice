@@ -6,7 +6,7 @@
 package com.autonomic.nowcoder.primer;
 
 /**
- * @author SXH
+ * @author Unique66
  * @description NC151 最大公约数
  * @date 2021/7/4 23:17
  *

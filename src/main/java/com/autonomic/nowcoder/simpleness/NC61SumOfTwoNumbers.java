@@ -8,7 +8,7 @@ package com.autonomic.nowcoder.simpleness;
 import java.util.HashMap;
 
 /**
- * @author SXH
+ * @author Unique66
  * @description NC61 两数之和
  * @date 2021/7/4 23:23
  *

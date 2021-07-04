@@ -6,7 +6,7 @@
 package com.autonomic.nowcoder.primer;
 
 /**
- * @author SXH
+ * @author Unique66
  * @description NC110 旋转数组
  * @date 2021/7/4 23:14
  *

@@ -8,7 +8,7 @@ package com.autonomic.nowcoder.primer;
 import java.util.ArrayList;
 
 /**
- * @author SXH
+ * @author Unique66
  * @description 螺旋矩阵 NC38
  * @date 2021/7/4 23:03
  *

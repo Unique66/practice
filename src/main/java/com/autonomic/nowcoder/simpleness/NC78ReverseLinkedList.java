@@ -6,7 +6,7 @@
 package com.autonomic.nowcoder.simpleness;
 
 /**
- * @author SXH
+ * @author Unique66
  * @description NC78 反转链表
  * @date 2021/7/4 23:21
  *

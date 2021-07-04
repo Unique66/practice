@@ -6,7 +6,7 @@
 package com.autonomic.nowcoder.primer;
 
 /**
- * @author SXH
+ * @author Unique66
  * @description 斐波那契数列 NC65
  * @date 2021/7/4 23:04
  *
