@@ -99,6 +99,8 @@ class ThreadBinaryTree {
         // 1.中序线索化先线索化左子树
         threadedNodes(node.getLeft());
         // 2.再线索化当前结点
+        // 例如：{1, 3, 6, 8, 10, 14} 完全二叉树 中序遍历结果{8, 3, 10, 1, 14, 6}
+        // 此时node 假设是8，那么pre 就是null了，leftType == 1
         if (node.getLeft() == null) {
             // 让当前节点的左指针指向前驱节点
             node.setLeft(pre);
