@@ -38,6 +38,20 @@ package com.autonomic.nowcoder.simpleness;
  */
 public class NC4IsRingLinkedList {
     public boolean hasCycle(ListNode head) {
+        if (head == null) {
+            return false;
+        }
+
+        ListNode speed1 = head; // 配速1
+        ListNode speed2 = head; // 配速2
+        // 如果链表有环，那么两个配速的节点总会相遇的（相当于追击问题）
+        while (speed1 != null && speed2 != null && speed2.next != null) {
+            speed1 = speed1.next;
+            speed2 = speed2.next.next;
+            if (speed1 != null && speed1 == speed2) {
+                return true;
+            }
+        }
         return false;
     }
 }
