@@ -28,9 +28,16 @@ public class NC13MaximumDepthOfBinaryTree {
      * @param root TreeNode类
      * @return int整型
      */
-    public int maxDepth(TreeNode root) {
+    public int maxDepth (TreeNode root) {
         // write code here
-        return -1;
+        // 其实就是求树的层数
+        if (root == null) {
+            return 0;
+        }
+        int left = maxDepth(root.left); // 以左孩子节点为根节点的的深度
+        int right = maxDepth(root.right); // 以右孩子节点为根节点的的深度
+        // 取深度大的那一个
+        return Math.max(left, right) + 1;
     }
 }
 

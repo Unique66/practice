@@ -26,6 +26,33 @@ public class NC32SquareRoot {
      */
     public int sqrt (int x) {
         // write code here
-        return -1;
+        if (x <= 0) {
+            return 0;
+        }
+
+        int left = 1, right = x;
+        while (true) {
+            int middle = (left + right) >> 1;
+            if (middle <= x / middle && (middle+1) > x / (middle+1)) {
+                return (int) middle;
+            } else if (middle < x / middle) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+    }
+
+    // 自己的笨方法
+    public int sqrt1 (int x) {
+        // write code here
+        int n = 0;
+        if (x == 0) {
+            return n;
+        }
+        while (n * n <= x) {
+            n++;
+        }
+        return n - 1;
     }
 }

@@ -5,6 +5,8 @@
 
 package com.autonomic.nowcoder.simpleness;
 
+import java.util.Stack;
+
 /**
  * @author Unique66
  * @description NC52 括号序列 考察点：栈、字符串
@@ -31,6 +33,36 @@ public class NC52BracketsSequence {
      */
     public boolean isValid (String s) {
         // write code here
-        return false;
+        int len = s.length(); // 字符串长度
+        // 由题目可知，字符串长度一定是偶数，才能保证括号序列合法
+        if (len % 2 != 0) {
+            return false;
+        }
+        // 创建栈，用来处理char
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < len; i++) {
+            char c = s.charAt(i); // 找到当前待处理的char
+            // 处于左侧的符号，直接放入栈
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else if (c == ')' || c == '}' || c == ']') { // 处于右侧的符号，要判断当前栈peek是否有与之对应的符号
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char temp = stack.peek();
+                if (temp == '(' && c == ')') {
+                    stack.pop();
+                } else if (temp == '{' && c == '}') {
+                    stack.pop();
+                } else if (temp == '[' && c == ']') {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return stack.isEmpty();
     }
 }
