@@ -22,6 +22,12 @@ package com.autonomic.nowcoder.simpleness;
  * M是32位整数，2<=N<=16.
  */
 public class NC112ConversionOfNumberSystems {
+    public static void main(String[] args) {
+        char a = 'A';
+        Character f = (char)65;
+        System.out.println(f.toString());
+        System.out.println(f);
+    }
     /**
      * 进制转换
      * @param M int整型 给定整数
@@ -30,6 +36,35 @@ public class NC112ConversionOfNumberSystems {
      */
     public String solve (int M, int N) {
         // write code here
-        return null;
+        if (M == 0) {
+            return "0";
+        }
+        // 对M 求比值
+        StringBuilder sb = new StringBuilder("");
+        boolean f = false; // 是否为负数
+        if (M < 0) {
+            M = -M;
+            f = true;
+        }
+        while (M != 0) {
+            sb.append(invert(M % N)); // 余数
+            M = M / N; // 除数
+        }
+        if (f) {
+            sb.append("-");
+        }
+        return sb.reverse().toString();
+    }
+
+    // 转换关系
+    private char invert(int i) {
+//        if (i < 10) {
+//            return i + "";
+//        } else {
+//            // 10-16 分别对应 A/B/C/D/E/F    A 的ASCII 是65
+//            return Character.toString((char)(55 + i));
+//        }
+        String s = "0123456789ABCDEF";
+        return s.charAt(i);
     }
 }

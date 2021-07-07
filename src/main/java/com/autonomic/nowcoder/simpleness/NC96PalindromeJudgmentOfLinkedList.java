@@ -32,13 +32,64 @@ package com.autonomic.nowcoder.simpleness;
  * 1 ≤ n ≤ 10^6
  */
 public class NC96PalindromeJudgmentOfLinkedList {
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next  = new ListNode(2);
+        head.next.next .next  = new ListNode(1);
+        reverseNode(head).showList();
+        System.out.println("----------");
+        head.showList();
+    }
     /**
      *
      * @param head ListNode类 the head
      * @return bool布尔型
      */
     public boolean isPail (ListNode head) {
-        // write code here
-        return false;
+        if (head == null || head.next == null) {
+            return true;
+        }
+        // 使用双指针概念，快慢指针，找到链表的中间位置
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next; // 移动距离是slow 的两倍，就会找到链表终点
+        }
+        // 此时slow 就是链表的中间位置
+        fast = slow.next;
+        slow.next = null;
+        ListNode reverseNode = reverseNode(fast);
+
+        // 翻转后面链表后，对比两个链表的节点
+        while (head != null && reverseNode != null) {
+            if (head.val != reverseNode.val) {
+                return false;
+            }
+            head = head.next;
+            reverseNode = reverseNode.next;
+        }
+        return true;
+    }
+
+    // 工具方法：翻转节点
+    public static ListNode reverseNode (ListNode head) {
+        // 创建辅助节点
+        ListNode helpNode = new ListNode(0);
+        ListNode temp = head;
+        ListNode next = null;
+        while (temp != null) {
+            // 先记录下一个节点
+            next = temp.next;
+            // 处理当前处理节点的指向关系
+            temp.next = helpNode.next;
+            // 处理辅助节点指向最新的节点，保证翻转
+            helpNode.next = temp;
+            // 处理下一个节点
+            temp = next;
+        }
+        // 最后处理完毕
+        return helpNode.next;
     }
 }

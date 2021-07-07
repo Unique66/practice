@@ -5,6 +5,8 @@
 
 package com.autonomic.nowcoder.simpleness;
 
+import java.util.Stack;
+
 /**
  * @author Unique66
  * @description NC90 包含min函数的栈 考察点：栈
@@ -37,19 +39,33 @@ package com.autonomic.nowcoder.simpleness;
  * 返回值：-1,2,1,-1
  */
 public class NC90MinFunctionOfStack {
-    public void push(int node) {
+    Stack<Integer> stack = new Stack<>();
+    Stack<Integer> minStack = new Stack<>(); // 用来存储栈中每一层对应的最小值，以便返回
 
+    public void push(int node) {
+        stack.push(node);
+        // 需要操作minStack 存储最小值
+        if (minStack.isEmpty()) { // 首次存储，直接放入
+            minStack.push(node);
+        } else {
+            if (minStack.peek() < node) {
+                minStack.push(minStack.peek());
+            } else {
+                minStack.push(node);
+            }
+        }
     }
 
     public void pop() {
-
+        stack.pop();
+        minStack.pop();
     }
 
     public int top() {
-        return -1;
+        return stack.peek();
     }
 
     public int min() {
-        return -1;
+        return minStack.peek();
     }
 }
