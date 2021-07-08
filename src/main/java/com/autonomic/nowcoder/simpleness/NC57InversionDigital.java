@@ -40,6 +40,12 @@ public class NC57InversionDigital {
      */
     public int reverse (int x) {
         // write code here
-        return -1;
+        long res = 0; // 承载翻转的数值
+        while (x != 0) {
+            // 从后向前的处理数据   例如：最后一位变为反转后的第一位
+            res = res * 10 + x % 10;
+            x = x / 10;
+        }
+        return (int) res == res ? (int) res : 0;
     }
 }

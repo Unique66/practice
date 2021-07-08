@@ -24,7 +24,27 @@ package com.autonomic.nowcoder.simpleness;
  * 返回值：true
  */
 public class NC62BalancedBinaryTree {
+    boolean flag = true; // 判断是否是平衡二叉树
     public boolean IsBalanced_Solution(TreeNode root) {
-        return false;
+        // 空树也是平衡二叉树
+        if (root == null) {
+            return true;
+        }
+        depth(root);
+        return flag;
+    }
+
+    // 获取深度的方法
+    public int depth(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int left = depth(node.left);
+        int right = depth(node.right); // 向右递归
+        // 比较左右子树的深度差值
+        if (Math.abs(left - right) > 1) {
+            flag = false;
+        }
+        return Math.max(left, right) + 1;
     }
 }

@@ -19,6 +19,9 @@ package com.autonomic.nowcoder.simpleness;
  * 返回值："abc"
  */
 public class NC55LongestCommonPrefix {
+    public static void main(String[] args) {
+        System.out.println("01".substring(0, 2));
+    }
     /**
      *
      * @param strs string字符串一维数组
@@ -26,6 +29,19 @@ public class NC55LongestCommonPrefix {
      */
     public String longestCommonPrefix (String[] strs) {
         // write code here
-        return null;
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        String res = "";
+        for (int i = 0; i < strs[0].length(); i++) {
+            res = strs[0].substring(0, i + 1);
+            for (int j = 1; j < strs.length; j++) {
+                if (res.length() > strs[j].length()
+                        || !res.equals(strs[j].substring(0, i + 1))) {
+                    return strs[0].substring(0, i);
+                }
+            }
+        }
+        return strs[0];
     }
 }

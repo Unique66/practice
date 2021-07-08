@@ -32,6 +32,12 @@ public class NC101TheMissingNumber {
      */
     public int solve (int[] a) {
         // write code here
-        return -1;
+        // 如果我们把这个数组添加从0~n的n+1个元素，就变成了数组中只有一个数出现了一次，
+        // 其他数字都出现了2次，让我们求这个只出现一次的数字。这题使用位运算是最容易解决的
+        int res = 0;
+        for (int i = 0; i < a.length; i++) {
+            res ^= (a[i] ^ i);
+        }
+        return res ^ a.length;
     }
 }
