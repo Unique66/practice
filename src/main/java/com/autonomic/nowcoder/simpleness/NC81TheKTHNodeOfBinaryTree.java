@@ -5,6 +5,9 @@
 
 package com.autonomic.nowcoder.simpleness;
 
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * @author Unique66
  * @description NC81 二叉搜索树的第k个结点 考察点：树
@@ -21,6 +24,32 @@ package com.autonomic.nowcoder.simpleness;
  */
 public class NC81TheKTHNodeOfBinaryTree {
     TreeNode KthNode(TreeNode pRoot, int k) {
-        return null;
+        if (pRoot == null || k < 1) {
+            return null;
+        }
+        LinkedList<TreeNode> list = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        // 使用临时变量来处理遍历
+        TreeNode cur = pRoot;
+        // 将root 放入到栈中
+        stack.add(cur);
+        // 中序遍历：左子节点、根节点、右子节点
+        while (!stack.isEmpty()) {
+            while (cur != null && cur.left != null) {
+                stack.add(cur.left);
+                cur = cur.left;
+            }
+            // 中间节点
+            cur = stack.pop();
+            list.add(cur);
+            // 处理右子节点
+            if (cur != null && cur.right != null) {
+                stack.add(cur.right);
+                cur = cur.right;
+            } else {
+                cur = null;
+            }
+        }
+        return k <= list.size() ? list.get(k - 1) : null;
     }
 }

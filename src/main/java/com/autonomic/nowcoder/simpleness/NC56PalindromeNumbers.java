@@ -30,6 +30,16 @@ public class NC56PalindromeNumbers {
      */
     public boolean isPalindrome (int x) {
         // write code here
-        return false;
+        if (x < 0) {
+            return false;
+        }
+        // 将 x 翻转，int 翻转时可能会溢出，所以需要使用long 类型来接收
+        long res = 0L;
+        while (x != 0) {
+            res = res * 10 + x % 10;
+            x = x / 10;
+        }
+        // 上面循环遍历完毕后，会将x 倒置
+        return (int) res == res;
     }
 }

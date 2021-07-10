@@ -33,6 +33,15 @@ public class NC9BinaryTreePathSum {
      */
     public boolean hasPathSum (TreeNode root, int sum) {
         // write code here
-        return false;
+        if (root == null) {
+            return false;
+        }
+        // 递归思想
+        if (root.left == null && root.right == null && sum == root.val) {
+            return true;
+        }
+        boolean left = hasPathSum(root.left, sum - root.val);
+        boolean right = hasPathSum(root.right, sum - root.val);
+        return left || right; // 只要有一个OK就行
     }
 }

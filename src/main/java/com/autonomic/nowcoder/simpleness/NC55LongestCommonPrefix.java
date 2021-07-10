@@ -32,9 +32,8 @@ public class NC55LongestCommonPrefix {
         if (strs == null || strs.length == 0) {
             return "";
         }
-        String res = "";
         for (int i = 0; i < strs[0].length(); i++) {
-            res = strs[0].substring(0, i + 1);
+            String res = strs[0].substring(0, i + 1);
             for (int j = 1; j < strs.length; j++) {
                 if (res.length() > strs[j].length()
                         || !res.equals(strs[j].substring(0, i + 1))) {

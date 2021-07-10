@@ -26,8 +26,31 @@ package com.autonomic.nowcoder.simpleness;
  * 返回值："SAMPLE A IS tHIS"
  */
 public class NC89StringDeformation {
-    public String trans(String s, int n) {
+    public static void main(String[] args) {
+        System.out.println(trans("This is a sample", 16));
+    }
+    public static String trans(String s, int n) {
         // write code here
-        return null;
+        String[] sub = s.split(" ", -1);
+        StringBuilder sb = new StringBuilder();
+        for (int i = sub.length - 1; i >= 0; i--) {
+            sb.append(exchange(sub[i]));
+            if (i != 0) {
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String exchange(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] >= 'A' && chars[i] <= 'Z') {
+                chars[i] = (char) (32 + chars[i]);
+            } else if (chars[i] >= 'a' && chars[i] <= 'z') {
+                chars[i] = (char) (chars[i] - 32);
+            }
+        }
+        return new String(chars);
     }
 }
