@@ -24,13 +24,46 @@ package com.autonomic.nowcoder.simpleness;
  */
 public class NC98T1SubtreeSameTopologyAsTheT2Tree {
     /**
-     *
      * @param root1 TreeNode类
      * @param root2 TreeNode类
      * @return bool布尔型
      */
-    public boolean isContains (TreeNode root1, TreeNode root2) {
+    public boolean isContains(TreeNode root1, TreeNode root2) {
         // write code here
-        return false;
+        if (root1 == null) {
+            return false;
+        }
+        return isContains(root1.left, root2) || isContains(root1.right, root2)
+                || isSubTree(root1, root2);
+    }
+
+    public boolean isSubTree(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null || root1.val != root2.val) {
+            return false;
+        }
+        return isSubTree(root1.left, root2.left)
+                && isSubTree(root1.right, root2.right);
+    }
+
+    // 该方法只能通过9成用例， {23,4,56,8,9,7,#},{4,8,#} 不通过
+    public boolean isContains1(TreeNode root1, TreeNode root2) {
+        // write code here
+        StringBuffer res1 = new StringBuffer();
+        StringBuffer res2 = new StringBuffer();
+        middleList(root1, res1);
+        middleList(root2, res2);
+        return res1.toString().contains(res2.toString());
+    }
+
+    public void middleList(TreeNode root, StringBuffer res) {
+        if (root == null) {
+            return;
+        }
+        middleList(root.left, res);
+        res.append(root.val);
+        middleList(root.right, res);
     }
 }

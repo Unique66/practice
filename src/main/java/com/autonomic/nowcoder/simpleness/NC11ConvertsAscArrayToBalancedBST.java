@@ -5,6 +5,9 @@
 
 package com.autonomic.nowcoder.simpleness;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+
 /**
  * @author Unique66
  * @description NC11 将升序数组转化为平衡二叉搜索树
@@ -20,12 +23,76 @@ package com.autonomic.nowcoder.simpleness;
  */
 public class NC11ConvertsAscArrayToBalancedBST {
     /**
-     *
      * @param num int整型一维数组
      * @return TreeNode类
      */
-    public TreeNode sortedArrayToBST (int[] num) {
+    // 换一种思路：使用分治的逻辑
+    public TreeNode sortedArrayToBST(int[] num) {
         // write code here
-        return null;
+        if (num == null || num.length == 0) {
+            return null;
+        }
+        return helper(num, 0, num.length - 1);
+    }
+
+    public TreeNode helper(int[] num, int l, int r) {
+        if (l > r) {
+            return null;
+        }
+        int mid = l + (r - l + 1) / 2; // 题目中的示例可以得知，使用此去中方式才合适
+//         int mid = (l + r) / 2;
+        TreeNode midNode = new TreeNode(num[mid]);
+        // 左边分配
+        midNode.left = helper(num, l, mid - 1);
+        // 右分配
+        midNode.right = helper(num, mid + 1, r);
+        return midNode;
+    }
+
+    // 浪费感情的解法，有问题：没有考虑空子节点
+    public TreeNode sortedArrayToBST1(int[] num) {
+        // write code here
+        if (num == null || num.length == 0) {
+            return null;
+        }
+        // 中序遍历还原二叉树
+        LinkedList<Integer> list = new LinkedList<>();
+        //
+        middlerList(num.length, 0, list);
+        int[] result = new int[num.length];
+        for (int i = 0; i < list.size(); i++) {
+            result[list.get(i)] = num[i];
+        }
+        System.out.println(Arrays.toString(result));
+        // 通过数组创建树
+        TreeNode node = new TreeNode(result[0]);
+        createTreeByArray(result, 0, node);
+        return node;
+
+    }
+
+    // 对数组进行中序遍历，获取数组中序遍历时的取值数组下标顺序
+    public void middlerList(int len, int index, LinkedList<Integer> list) {
+        // 对result 进行中序遍历
+        if (index >= len) {
+            return;
+        }
+        middlerList(len, index * 2 + 1, list);
+        list.add(index);
+        middlerList(len, index * 2 + 2, list);
+    }
+
+    public void createTreeByArray(int[] arr, int index, TreeNode node) {
+        if (index >= arr.length) {
+            return;
+        }
+        if (index * 2 + 1 < arr.length) {
+            node.left = new TreeNode(arr[index * 2 + 1]);
+            createTreeByArray(arr, index * 2 + 1, node.left);
+        }
+        if (index * 2 + 2 < arr.length) {
+            node.right = new TreeNode(arr[index * 2 + 2]);
+            createTreeByArray(arr, index * 2 + 2, node.right);
+        }
     }
 }
