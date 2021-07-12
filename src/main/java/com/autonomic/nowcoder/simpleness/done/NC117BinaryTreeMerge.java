@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:NC117BinaryTreeMerge.java
- * Date:2021/07/10 22:28:10
+ * Date:2021/07/13 00:57:13
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 /**
  * @author Unique66
@@ -47,8 +47,18 @@ public class NC117BinaryTreeMerge {
      * @param t2 TreeNode类
      * @return TreeNode类
      */
-    // 题解中较为简洁的写法
+    // 题解中较为简洁的写法（我的写法）
     public TreeNode mergeTrees (TreeNode t1, TreeNode t2) {
+        if(t1 == null) return t2;
+        if(t2 == null) return t1;
+        TreeNode tempNode = new TreeNode(t1.val + t2.val);
+        tempNode.left = mergeTrees(t1.left, t2.left);
+        tempNode.right = mergeTrees(t1.right, t2.right);
+        return tempNode;
+    }
+
+    // 题解中较为简洁的写法（题解中看到的）
+    public TreeNode mergeTrees2 (TreeNode t1, TreeNode t2) {
         if(t1 == null) return t2;
         if(t2 == null) return t1;
         t1.val += t2.val;

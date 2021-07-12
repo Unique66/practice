@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:NC101TheMissingNumber.java
- * Date:2021/07/07 00:26:07
+ * Date:2021/07/09 00:03:09
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 /**
  * @author Unique66

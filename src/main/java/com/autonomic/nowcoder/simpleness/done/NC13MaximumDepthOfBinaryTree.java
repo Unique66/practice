@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:NC13MaximumDepthOfBinaryTree.java
- * Date:2021/07/06 00:51:06
+ * Date:2021/07/13 01:09:13
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 /**
  * @author Unique66
@@ -38,22 +38,5 @@ public class NC13MaximumDepthOfBinaryTree {
         int right = maxDepth(root.right); // 以右孩子节点为根节点的的深度
         // 取深度大的那一个
         return Math.max(left, right) + 1;
-    }
-}
-
-class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-
-    @Override
-    public String toString() {
-        return "TreeNode{" +
-                "val=" + val +
-                '}';
     }
 }

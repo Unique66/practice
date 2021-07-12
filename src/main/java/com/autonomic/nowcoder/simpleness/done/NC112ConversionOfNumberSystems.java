@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:NC112ConversionOfNumberSystems.java
- * Date:2021/07/07 00:17:07
+ * Date:2021/07/07 23:53:07
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 /**
  * @author Unique66

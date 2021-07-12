@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:NC106MaxProductOfThreeNumbers.java
- * Date:2021/07/10 22:51:10
+ * Date:2021/07/11 00:33:11
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 /**
  * @author Unique66

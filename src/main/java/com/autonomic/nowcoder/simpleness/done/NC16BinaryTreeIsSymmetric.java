@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:NC16BinaryTreeIsSymmetric.java
- * Date:2021/07/08 01:09:08
+ * Date:2021/07/10 17:34:10
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -133,7 +133,7 @@ public class NC16BinaryTreeIsSymmetric {
      * @param: arr 待处理数组
      * @param: curIndex 当前待处理元素的下标
      * @param: curNode  当前待处理的树
-     * @return com.autonomic.nowcoder.simpleness.TreeNode
+     * @return TreeNode
      */
     public static void creatTreeByArray(int[] arr, int curIndex, TreeNode curNode) {
         if (arr == null || arr.length == 0) {

@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021.  User:Unique66  File:NC22MergesTwoOrderedArrays.java
- * Date:2021/07/06 00:15:06
+ * Copyright (c) 2021.  User:Unique66 File:NC22MergesTwoOrderedArrays.java
+ * Date:2021/07/06 00:31:06
  */
 
-package com.autonomic.nowcoder.simpleness;
+package com.autonomic.nowcoder.simpleness.done;
 
 /**
  * @author Unique66

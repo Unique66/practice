@@ -40,27 +40,3 @@ public class NC78ReverseLinkedList {
         return reverseNode;
     }
 }
-
-class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    @Override
-    public String toString() {
-        return "ListNode{" +
-                "val=" + val +
-                '}';
-    }
-
-    public void showList() {
-        ListNode cur = this;
-        while (cur != null) {
-            System.out.println(cur);
-            cur = cur.next;
-        }
-    }
-}
