@@ -25,7 +25,7 @@ import java.util.Scanner;
  * 输入：I am a student
  * 输出：tneduts a ma I
  */
-public class HJInverseString {
+public class HJ106InverseString {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String input = in.nextLine(); // ※※※※※ 要是用nextLine 获取整行数据
