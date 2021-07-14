@@ -23,7 +23,8 @@ public class PolandNotation {
 //		System.out.println(toInfixExpressionList("(44+3)*40+33*66"));
 
 		// 测试中缀转后缀表达式功能
-		List<String> infix = toInfixExpressionList("(44+3)*40+33*66");
+		List<String> infix = toInfixExpressionList("-1*(-1-1)");
+//		List<String> infix = toInfixExpressionList("(44+3)*40+33*66");
 		System.out.println("中缀表达式对应的List：" + infix);
 		List<String> suffix = toSuffixExpression(infix);
 		System.out.println("后缀表达式对应的List：" + suffix);
@@ -47,8 +48,8 @@ public class PolandNotation {
 	 * @Date 2020/5/5  22:57
 	 **/
 	public static List<String> toSuffixExpression(List<String> list) {
-		Stack<String> s1 = new Stack<String>();
-		List<String> s2 = new ArrayList<String>(); // s2 可以用链表来代替
+		Stack<String> s1 = new Stack<>();
+		List<String> s2 = new ArrayList<>(); // s2 可以用链表来代替
 		for (String ele : list) {
 			if (ele.matches("\\d+")) { // 遇到操作数时，将其压s2；
 				s2.add(ele);
@@ -81,7 +82,7 @@ public class PolandNotation {
 		// 定义一个List，存放中缀表达式对应的内容
 		List<String> ls = new ArrayList<>();
 		int i = 0; // 这是一个指针，用于比那里中缀表达式字符串
-		String str; // 对多位数的拼接 如699
+		StringBuilder str; // 对多位数的拼接 如699
 		char c; // 每遍历一个字符，就放到c
 		do {
 			// 如果c 是一个非数字，我们直接加入到ls 中
@@ -89,12 +90,12 @@ public class PolandNotation {
 				ls.add("" + c);
 				i++;
 			} else { // 如果是数，需要考虑多位数问题
-				str = ""; // 首先将str 置为""
+				str = new StringBuilder(); // 首先将str 置为""
 				while (i < s.length() && (c = s.charAt(i)) >= 48 && (c = s.charAt(i)) <= 57) { // 如果是多位数需要拼接
-					str +=  c;
+					str.append(c);
 					i++;
 				}
-				ls.add(str);
+				ls.add(str.toString());
 			}
 		} while (i < s.length());
 		return ls;
