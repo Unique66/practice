@@ -3,7 +3,9 @@
  * Date:2021/07/14 00:31:14
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
+
+import java.util.Scanner;
 
 /**
  * @author Unique66
@@ -30,4 +32,18 @@ package com.autonomic.nowcoder.hw.simpleness;
  * 0
  */
 public class HJ84CountCapitalLetters {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        // 注意 hasNext 和 hasNextLine 的区别
+        while (in.hasNextLine()) { // 注意 while 处理多个 case
+            String input = in.nextLine();
+            int count = 0; // 大写字母个数
+            for (int i = 0; i < input.length(); i++) {
+                if (input.charAt(i) >= 'A' && input.charAt(i) <= 'Z') {
+                    count++;
+                }
+            }
+            System.out.println(count);
+        }
+    }
 }
