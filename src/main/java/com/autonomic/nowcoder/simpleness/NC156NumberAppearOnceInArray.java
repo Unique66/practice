@@ -29,6 +29,26 @@ public class NC156NumberAppearOnceInArray {
      */
     public int foundOnceNumber (int[] arr, int k) {
         // write code here
-        return -1;
+        // 思路：整型数组中所有数变为二进制，然后所有二进制的数同位相加，如果是重复的，那么/k 是可以被整除的，
+        // 所以这个存放32 位二进制相加结果的int[32] 数组的所有元素被k 除，余数就是那个单独的整数的二进制
+        // 将此二进制变为十进制即可
+        int[] res = new int[32];
+        for (int i = 0; i < res.length; i++) {
+            int sum = 0;
+            // 对arr 数组遍历，求arr.length 个元素的二进制同位相加的结果
+            for (int value : arr) {
+                sum += (value >> i & 1); // 右移元素，得到该二进制位数
+            }
+            // 遍历完arr 整型数组，的倒i 这个二进制位的所有元素二进制位i 和
+            res[i] = sum;
+        }
+
+        int result = 0;
+        for (int i = 0; i < res.length; i++) {
+            if (res[i] % k != 0) {
+                result += 1 << i; // 左移恢复
+            }
+        }
+        return result;
     }
 }
