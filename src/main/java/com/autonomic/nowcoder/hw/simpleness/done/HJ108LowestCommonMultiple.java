@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ108LowestCommonMultiple.java
- * Date:2021/07/13 00:42:13
+ * Date:2021/07/13 00:44:13
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
 
 import java.util.Scanner;
 

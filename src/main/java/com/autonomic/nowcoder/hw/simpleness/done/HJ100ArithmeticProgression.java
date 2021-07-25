@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ100ArithmeticProgression.java
- * Date:2021/07/13 23:59:13
+ * Date:2021/07/14 00:00:14
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
 
 import java.util.Scanner;
 

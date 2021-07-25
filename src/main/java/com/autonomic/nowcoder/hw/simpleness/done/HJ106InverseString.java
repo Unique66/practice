@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021.  User:Unique66 File:HJInverseString.java
- * Date:2021/07/13 23:34:13
+ * Copyright (c) 2021.  User:Unique66 File:HJ106InverseString.java
+ * Date:2021/07/14 00:26:14
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
 
 import java.util.Scanner;
 

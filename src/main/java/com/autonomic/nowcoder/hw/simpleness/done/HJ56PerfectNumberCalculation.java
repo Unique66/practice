@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ56PerfectNumberCalculation.java
- * Date:2021/07/14 23:30:14
+ * Date:2021/07/14 23:32:14
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
 
 import java.util.Scanner;
 

@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ72OneHundredDollarsBuyAHundredChickens.java
- * Date:2021/07/15 00:05:15
+ * Date:2021/07/15 00:06:15
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
 
 /**
  * @author Unique66

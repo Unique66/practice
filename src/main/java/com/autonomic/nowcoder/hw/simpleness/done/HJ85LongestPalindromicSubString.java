@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ85LongestPalindromicSubString.java
- * Date:2021/07/14 00:29:14
+ * Date:2021/07/16 00:01:16
  */
 
-package com.autonomic.nowcoder.hw.simpleness;
+package com.autonomic.nowcoder.hw.simpleness.done;
 
 import java.util.Scanner;
 
