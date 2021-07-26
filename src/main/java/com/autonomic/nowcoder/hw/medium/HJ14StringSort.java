@@ -47,11 +47,12 @@ import java.util.Scanner;
  * up
  */
 public class HJ14StringSort {
-    // 有问题？
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 注意 hasNext 和 hasNextLine 的区别
-        int line = in.nextInt();
+        // ※※此处如使用nextInt() 方法不会换行，对于题目输入是有问题的，
+        // 所以使用nextLine() 然后Integer 转换的方式获取整数值
+        int line = Integer.parseInt(in.nextLine());
         LinkedList<String> list = new LinkedList<>();
         for (int i = 0; i < line; i++) {
             String str = in.nextLine();
