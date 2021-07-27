@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ49MultiThread.java
- * Date:2021/07/26 22:49:26
+ * Date:2021/07/26 23:04:26
  */
 
-package com.autonomic.nowcoder.hw.medium;
+package com.autonomic.nowcoder.hw.medium.hard;
 
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;

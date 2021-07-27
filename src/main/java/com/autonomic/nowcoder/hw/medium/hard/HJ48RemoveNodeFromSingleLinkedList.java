@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ48RemoveNodeFromSingleLinkedList.java
- * Date:2021/07/26 22:34:26
+ * Date:2021/07/26 22:41:26
  */
 
-package com.autonomic.nowcoder.hw.medium;
+package com.autonomic.nowcoder.hw.medium.hard;
 
 import java.util.LinkedList;
 import java.util.Scanner;

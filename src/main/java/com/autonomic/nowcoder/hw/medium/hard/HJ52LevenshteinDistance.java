@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2021.  User:Unique66 File:HJ52LevenshteinDistance.java
- * Date:2021/07/26 23:06:26
+ * Date:2021/07/26 23:14:26
  */
 
-package com.autonomic.nowcoder.hw.medium;
+package com.autonomic.nowcoder.hw.medium.hard;
 
 import java.util.Scanner;
 
