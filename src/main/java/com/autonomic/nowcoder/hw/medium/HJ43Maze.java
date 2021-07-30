@@ -5,10 +5,7 @@
 
 package com.autonomic.nowcoder.hw.medium;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.Stack;
 
 /**
  * @author Unique66
@@ -83,60 +80,114 @@ import java.util.Stack;
  * 注意：不能斜着走！！
  */
 public class HJ43Maze {
-    public static Stack<String> stack = new Stack<>();
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        // 注意 hasNext 和 hasNextLine 的区别
-        while (in.hasNextInt()) { // 注意 while 处理多个 case
-            int row = in.nextInt();
-            int list = in.nextInt();
-            // 制作迷宫
-            int[][] maze = new int[row][list];
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < list; j++) {
-                    maze[i][j] = in.nextInt();
+        while (in.hasNext()) {
+            int n = in.nextInt();
+            int m = in.nextInt();
+            int[][] num = new int[n + 2][m + 2];
+            for (int i = 0; i < m + 2; i++) {
+                num[0][i] = 1;  // 第一行 最后一行为 1
+                num[n + 1][i] = 1;
+            }
+            for (int j = 0; j < n + 2; j++) {
+                num[j][0] = 1;
+                num[j][m + 1] = 1;
+            }
+            for (int i = 1; i < n + 1; i++) {
+                for (int j = 1; j < m + 1; j++) {
+                    num[i][j] = in.nextInt();
                 }
             }
-            // 从0,0 开始
-            find(0, 0, maze);
-            List<String> l = new ArrayList<>();
-            while (!stack.isEmpty()) {
-                l.add(stack.pop());
-            }
-            for (int i = l.size() - 1; i >= 0; i--) {
-                System.out.println(l.get(i));
+            setWay(num, 1, 1, n, m);
+            for (int i = 1; i < n + 1; i++) {
+                for (int j = 1; j < m + 1; j++) {
+                    if (num[i][j] == 2)
+                        System.out.println("(" + (i - 1) + "," + (j - 1) + ")");
+                }
             }
         }
     }
 
-    public static boolean find(int row, int list, int[][] maze) {
-        if (row < 0 || list < 0 || row > maze.length - 1 || list > maze[0].length - 1) {
-            return false;
-        }
-        if (maze[maze.length - 1][maze[0].length - 1] == 2) {
+    public static boolean setWay(int[][] num, int i, int j, int a, int b) {
+        // 1 表示墙，2表示走且可以走，3表示走过走不通
+        if (num[a][b] == 2) { // 右下角走通了
             return true;
-        }
-        // 如果可以通过将该处设为2，表示走过了
-        if (maze[row][list] == 0) {
-            maze[row][list] = 2;
-            stack.push("(" + row + "," + list + ")");
-            if (find(row + 1, list, maze)) { // 向下
-                return true;
-            } else if (find(row, list + 1, maze)) { // 向右
-                return true;
-            } else if (find(row - 1, list, maze)) { // 向上
-                return true;
-            } else if (find(row, list - 1, maze)) { // 向左
-                return true;
-            } else {
-                maze[row][list] = 3;
-                stack.pop();
+        } else {
+            if (num[i][j] == 0) { // 0 可以走
+                // 按照 下右上左
+                num[i][j] = 2;
+                if (setWay(num, i + 1, j, a, b)) {
+                    return true;
+                } else if (setWay(num, i, j + 1, a, b)) {
+                    return true;
+                } else if (setWay(num, i - 1, j, a, b)) {
+                    return true;
+                } else if (setWay(num, i, j - 1, a, b)) {
+                    return true;
+                } else {  // 死路
+                    num[i][j] = 3;
+                    return false;
+                }
+            } else { // map[i][j] !=0  1  2  3
                 return false;
             }
-        } else {
-            stack.pop();
-            return false;
         }
     }
+//    public static Stack<String> stack = new Stack<>();
+//
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        // 注意 hasNext 和 hasNextLine 的区别
+//        while (in.hasNextInt()) { // 注意 while 处理多个 case
+//            int row = in.nextInt();
+//            int list = in.nextInt();
+//            // 制作迷宫
+//            int[][] maze = new int[row][list];
+//            for (int i = 0; i < row; i++) {
+//                for (int j = 0; j < list; j++) {
+//                    maze[i][j] = in.nextInt();
+//                }
+//            }
+//            // 从0,0 开始
+//            find(0, 0, maze);
+//            List<String> l = new ArrayList<>();
+//            while (!stack.isEmpty()) {
+//                l.add(stack.pop());
+//            }
+//            for (int i = l.size() - 1; i >= 0; i--) {
+//                System.out.println(l.get(i));
+//            }
+//        }
+//    }
+//
+//    public static boolean find(int row, int list, int[][] maze) {
+//        if (row < 0 || list < 0 || row > maze.length - 1 || list > maze[0].length - 1) {
+//            return false;
+//        }
+//        if (maze[maze.length - 1][maze[0].length - 1] == 2) {
+//            return true;
+//        }
+//        // 如果可以通过将该处设为2，表示走过了
+//        if (maze[row][list] == 0) {
+//            maze[row][list] = 2;
+//            stack.push("(" + row + "," + list + ")");
+//            if (find(row + 1, list, maze)) { // 向下
+//                return true;
+//            } else if (find(row, list + 1, maze)) { // 向右
+//                return true;
+//            } else if (find(row - 1, list, maze)) { // 向上
+//                return true;
+//            } else if (find(row, list - 1, maze)) { // 向左
+//                return true;
+//            } else {
+//                maze[row][list] = 3;
+//                stack.pop();
+//                return false;
+//            }
+//        } else {
+//            stack.pop();
+//            return false;
+//        }
+//    }
 }
