@@ -5,6 +5,8 @@
 
 package com.autonomic.leetcode.simpleness;
 
+import com.autonomic.leetcode.util.ListNode;
+
 /**
  * 合并两个有序链表
  *
@@ -55,22 +57,5 @@ public class LeetCode21 {
             temp.next = list2;
         }
         return result.next;
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
     }
 }
